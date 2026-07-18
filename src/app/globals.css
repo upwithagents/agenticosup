@@ -1,22 +1,24 @@
-@import "tailwindcss";
-/* PortalHeader's theme, scoped to [data-portal-chrome] so it can't collide
-   with this app's own tokens of the same name; its stylesheet already
-   imports tailwindcss. */
-@import "@upwithagents/ui/header-scope.css";
+/* Full shared theme (paper/ink + terracotta accent) — agenticosup adopts
+   it app-wide, not just for the header. This moves the app off its
+   mint-green dark-only "terminal" look and onto the shared light
+   paper/ink palette, per the rollout's full-adoption decision. Token
+   names are kept (rules below reference them); values now alias the
+   shared tokens. */
+@import "@upwithagents/ui/styles.css";
 /* Tailwind ignores node_modules by default; scan the UI package's classes. */
 @source "../../node_modules/@upwithagents/ui/dist";
 
 :root {
-  --bg: #07090a;
-  --surface: #0e120f;
-  --surface-2: #131810;
-  --border: #1c211d;
-  --border-soft: #161b17;
-  --text: #e9ece8;
-  --text-dim: #6e756e;
-  --text-faint: #40453f;
-  --accent: #6fe3a5;
-  --accent-glow: rgba(111, 227, 165, 0.28);
+  --bg: var(--background);
+  --surface: var(--muted);
+  --surface-2: color-mix(in srgb, var(--muted) 70%, var(--background));
+  --border: var(--border);
+  --border-soft: color-mix(in srgb, var(--border) 50%, transparent);
+  --text: var(--foreground);
+  --text-dim: var(--muted-foreground);
+  --text-faint: color-mix(in srgb, var(--muted-foreground) 60%, transparent);
+  --accent: var(--color-accent);
+  --accent-glow: color-mix(in srgb, var(--color-accent) 28%, transparent);
   --mono: ui-monospace, "SF Mono", "Berkeley Mono", Menlo, Consolas, monospace;
 }
 
@@ -96,7 +98,7 @@ body {
   height: 7px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 8px var(--accent-glow), 0 0 0 3px rgba(111, 227, 165, 0.08);
+  box-shadow: 0 0 8px var(--accent-glow), 0 0 0 3px color-mix(in srgb, var(--accent) 8%, transparent);
   display: inline-block;
   position: relative;
   top: -1px;
@@ -254,7 +256,7 @@ body {
   color: var(--text-dim);
 }
 .tl-item.next {
-  background: linear-gradient(90deg, rgba(111, 227, 165, 0.06), transparent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 6%, transparent), transparent);
   margin: 0 -8px;
   padding: 7px 8px;
   border-radius: 4px;
