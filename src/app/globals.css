@@ -339,7 +339,7 @@ body {
 }
 .chip.attn {
   color: var(--text);
-  border-color: rgba(111, 227, 165, 0.25);
+  border-color: color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 .footer {
