@@ -12,7 +12,6 @@
   --bg: var(--background);
   --surface: var(--muted);
   --surface-2: color-mix(in srgb, var(--muted) 70%, var(--background));
-  --border: var(--border);
   --border-soft: color-mix(in srgb, var(--border) 50%, transparent);
   --text: var(--foreground);
   --text-dim: var(--muted-foreground);
