@@ -11,10 +11,13 @@ does and its current (sample-data) scope.
 - **Branches**: `up/<max-3-word-kebab>`. The initial MVP was committed
   directly to `main` (repo genesis, matching sibling repos); later feature
   work goes through `up/*` branches.
-- **Stack**: Next.js 16 + TypeScript + vitest (pnpm). No Tailwind, no ORM —
-  there's no persisted domain data yet, `src/core/briefing.ts` is a plain
-  mock generator. Layering: `src/core` is pure TS and must not import
-  `next`/`react`; `src/app` holds UI and the `/api/briefing` route.
+- **Stack**: Next.js 16 + TypeScript + vitest (pnpm). Tailwind v4 is used
+  solely to render the shared `@upwithagents/ui` `PortalHeader` in
+  `src/app/components/PortalChrome.tsx`; the rest of the app's styling is
+  plain CSS in `globals.css`. No ORM — there's no persisted domain data
+  yet, `src/core/briefing.ts` is a plain mock generator. Layering:
+  `src/core` is pure TS and must not import `next`/`react`; `src/app` holds
+  UI and the `/api/briefing` route.
 - basePath is `/agenticosup`, matching the portal's `zoneRewrites()` in
   `upwithagents-portal/apps.config.ts`.
 - Plans live in the workspace-level `1_CLAUDE_WORKFLOW/plans/agenticosup/`

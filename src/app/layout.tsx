@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { PortalChrome } from "./components/PortalChrome";
 
 export const metadata: Metadata = {
   title: "AgenticOS — Daily Briefing",
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <PortalChrome />
         <div className="frame">{children}</div>
       </body>
     </html>
