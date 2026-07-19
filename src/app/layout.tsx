@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
+import { Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import { PortalChrome } from "./components/PortalChrome";
+
+const archivo = Archivo({
+  variable: "--app-font-display",
+  subsets: ["latin"],
+  weight: ["600"],
+});
+
+const inter = Inter({
+  variable: "--app-font-sans",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "AgenticOS — Daily Briefing",
@@ -13,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${archivo.variable} ${inter.variable}`}>
       <body>
         <PortalChrome />
         <div className="frame">{children}</div>
