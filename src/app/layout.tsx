@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Inter } from "next/font/google";
+import { ThemeScript } from "@upwithagents/ui";
 import "./globals.css";
 import { PortalChrome } from "./components/PortalChrome";
 
@@ -26,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${archivo.variable} ${inter.variable}`}>
+      <head>
+        <ThemeScript />
+      </head>
       <body>
         <PortalChrome />
         <div className="frame">{children}</div>
