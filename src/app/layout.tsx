@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${inter.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>
