@@ -31,8 +31,9 @@ export default function RootLayout({
         <ThemeScript />
       </head>
       <body>
-        <PortalChrome />
-        <div className="frame">{children}</div>
+        <PortalChrome>
+          <div className="frame">{children}</div>
+        </PortalChrome>
       </body>
     </html>
   );
